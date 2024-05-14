@@ -16,7 +16,16 @@
   }
 }
 
+.button-gradient {
+  @apply bg-gradient-to-bl from-blue-700 to-slate-200;
+}
+
 body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
