@@ -3,22 +3,16 @@ import { FormEvent } from "react";
 import config from '../config';
 
 async function fetchData(query: string) {
-    // const response = await fetch('/api/hello', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //         'Authentication': `Bearer ${config.envVars.OPENAI_API_KEY}`
-    //     },
-    //     body: JSON.stringify({ query })
-    // });
-
-    const response = new Promise<Response>((resolve, _reject) => {
-        setTimeout(() => {
-            resolve({response: 'Hello, world!'} as unknown as Response);
-        }, 1000);
+    const response = await fetch('/api/hello', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authentication': `Bearer ${config.envVars.OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({ query })
     });
 
-    const data = await response.then(response => response);
+    const data = await response.json();
     return data;
 }
 
